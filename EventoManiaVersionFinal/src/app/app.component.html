@@ -1,0 +1,60 @@
+<html>
+        <head>
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+                integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        </head>
+        <body>
+                <div class="container mt-0">
+                        <h1 class="display-3 mb-4">EVENTOMANIA</h1>
+                        <select class="form-control mb-5" [(ngModel)]="seleccionDireccion">
+                            <option value=""> - </option>
+                            <option *ngFor="let direccion of direcciones" [value]="direccion">{{ direccion }}</option>
+                        </select>
+                
+                        <h2 class="display-5 mb-4">PROXIMOS EVENTOS</h2>
+                        <div class="contenedor eventos-container d-flex flex-column justify-content-center">
+                            <div *ngIf="proximosEventos().length > 0 else noProximosEventos">
+                                <div class="evento-card col-md-5 mb-4" *ngFor="let evento of proximosEventos()">
+                                    <p>Titulo: {{ evento.titulo }}</p>
+                                    <p>Artista: {{ evento.artista }}</p>
+                                    <p>Dirección: {{ evento.direccion }}</p>
+                                    <p>Fecha: {{ evento.fecha | date: 'MMMM d, y - HH:mm\'h\'' }}</p>
+                                    <p *ngIf="evento.precio === 0; else mostrarPrecio">Gratis</p>
+                                    <ng-template #mostrarPrecio>
+                                        <p>Precio: {{ evento.precio | currency:'USD':true }}</p>
+                                    </ng-template>
+                                </div>
+                            </div>
+                            <ng-template #noProximosEventos>
+                                <h3 class="no-eventos-msg">No hay nada que mostrar</h3>
+                            </ng-template>
+                        </div>
+                
+                        <h2 class="display-5 mb-4">EVENTOS PASADOS</h2>
+                        <div class="contenedor eventos-container d-flex flex-column justify-content-center">
+                            <div *ngIf="eventosPasados().length > 0 else noEventosPasados">  
+                                <div class="evento-card col-md-5 mb-4" *ngFor="let evento of eventosPasados()">
+                                    <p>Titulo: {{ evento.titulo }}</p>
+                                    <p>Artista: {{ evento.artista }}</p>
+                                    <p>Dirección: {{ evento.direccion }}</p>
+                                    <p>Fecha: {{ evento.fecha | date: 'MMMM d, y - HH:mm\'h\'' }}</p>
+                                    <p *ngIf="evento.precio === 0; else mostrarPrecio">Gratis</p>
+                                    <ng-template #mostrarPrecio>
+                                        <p>Precio: {{ evento.precio | currency:'USD':true }}</p>
+                                    </ng-template>
+                                </div>
+                            </div>
+                            <ng-template #noEventosPasados>
+                                <h3 class="no-eventos-msg">No hay nada que mostrar</h3>
+                            </ng-template>
+                        </div>
+                
+                    </div>
+                    <footer>
+                        <p class="p1">Hecho por: Adrià del Olmo</p>
+                        <p class="p1">Entrega del : 28/11723</p>
+                    </footer>
+        </body>
+</html>

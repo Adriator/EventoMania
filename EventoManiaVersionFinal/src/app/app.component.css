@@ -1,0 +1,93 @@
+body {
+    background-color: #6610f2; /*#6610f2*/
+    color: #343a40; 
+}
+
+h1, h2, h3 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: oblique;
+    color: #ffc107; 
+    text-align: center; 
+}
+
+select,option {
+    margin-bottom: 20px;
+    background-color: #ffc107;
+    color: #343a40; 
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 8px;
+    transition: background-color 0.3s;
+}
+
+select:hover,option:hover {
+    background-color: #dc3545; 
+    color: #ffffff; 
+}
+
+.contenedor {
+    margin-bottom: 40px;
+    width: 100%;
+}
+.contenedor eventos-container{
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.eventos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
+}
+
+.evento-card {
+    background-color: #242E2C; 
+    text-align: center;
+    font-weight: bold;
+    color:white;
+    border: 3px solid white; 
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20% / 90%; ; /*20% / 90%*/
+    margin-bottom: 20px;
+    margin-left: 40px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.evento-card p {
+    margin-bottom: 10px;
+}
+
+.no-eventos-msg {
+    width: 100%;
+    text-align: center;
+    color: #28a745; 
+    font-size: 1.2em;
+}
+footer{
+    background-color: #6610f2;
+}
+
+.p1{
+    color:white;
+    text-align: center;
+    font-weight: bolder;
+    font-size: larger;
+}
+
+/* Estilos adicionales de Bootstrap */
+.btn-custom {
+    background-color: #6610f2; 
+    color: #ffffff; 
+    border: 1px solid #6610f2; 
+    border-radius: 5px;
+    padding: 8px 15px;
+    transition: background-color 0.3s;
+}
+
+.btn-custom:hover {
+    background-color: #4e0d8a; 
+}
